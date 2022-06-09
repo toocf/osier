@@ -156,7 +156,7 @@ func loadRouter() {
 	}
 
 	boot.Ege.NoRoute(func(c *gin.Context) {
-		boot.Res(c, boot.Lang("url not found"), "Illegal Access!", 4)
+		boot.Res(c, "url not found", "Illegal Access!", 4)
 	})
 }
 
