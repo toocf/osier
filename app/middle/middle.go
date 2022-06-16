@@ -15,5 +15,6 @@ type Middle struct{}
 
 // 示例
 func (Middle) Custom(c *gin.Context) {
+
 	fmt.Println("自定义全局中间件Custom执行！")
 }

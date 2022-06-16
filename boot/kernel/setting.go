@@ -21,6 +21,7 @@ import (
 
 // 设置路由日志
 func setRouteLog(m, p, n string, h int) {
+
 	fmt.Fprintf(gin.DefaultWriter, "[%v]API: %v -> %v %v\n", m, p, n, h)
 }
 

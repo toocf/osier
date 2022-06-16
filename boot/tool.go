@@ -12,6 +12,7 @@ import (
 
 // 检测文件所属路径目录是否存在
 func ChkDir(fpath string) string {
+
 	_, err := os.Stat(filepath.Dir(fpath))
 	if err == nil {
 		return fpath
@@ -74,16 +75,19 @@ func NewClass[T any](cls T, dfKey string) T {
 
 // 获取缓存
 func Get(key string) (string, error) {
+
 	return Rds.Get(context.Background(), key).Result()
 }
 
 // 设置缓存
 func Set(key, val string, tm time.Duration) error {
+
 	return Rds.Set(context.Background(), key, val, tm).Err()
 }
 
 // 语言转换
 func Lang(k string) string {
+
 	val, ok := langText[k]
 	if !ok {
 		return k

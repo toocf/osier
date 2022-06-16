@@ -13,5 +13,6 @@ type Controller struct {
 
 // 例子
 func (that *Controller) Index(c *gin.Context) {
+
 	that.Suc(c, "你好，Osier框架！", "data")
 }

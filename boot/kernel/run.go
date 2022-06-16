@@ -86,6 +86,7 @@ func initGdb(c *config.Config) *gorm.DB {
 
 // 初始化缓存
 func initRds(c *config.Config) *redis.Client {
+
 	rds := redis.NewClient(&redis.Options{
 		Addr:     c.Redis.Host + ":" + c.Redis.Port,
 		Password: c.Redis.Password,
