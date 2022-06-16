@@ -41,7 +41,7 @@
 
 
 ### 注意
-
+    0. 全局将 osier 替换成 你的项目名称
     1. config.ini.example 复制并改名 config.ini
     2. 当前目录执行命令： go mod tidy
     3. go run main.go
