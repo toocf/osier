@@ -33,8 +33,13 @@
 - config.ini 配置文件
 
 
-### 其他
-- JWT认证 - 因其不可控，不会引入该中间件
+### 功能集合
+- Gin 框架
+- Viper 配置
+- Gorm 数据库
+- Redis 缓存
+- Zap 日志
+- Swagger 接口文档
 
 
 ### 注意
