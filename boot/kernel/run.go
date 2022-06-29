@@ -6,6 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v9"
 	"github.com/spf13/viper"
+	"github.com/swaggo/files"
+	"github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gorm.io/driver/mysql"
@@ -13,6 +15,7 @@ import (
 	"osier/app/middle"
 	"osier/boot"
 	"osier/config"
+	"osier/docs"
 	"osier/router"
 	"reflect"
 )
@@ -30,6 +33,7 @@ func Run() {
 
 	// 依托全局加载
 	loadLang()
+	loadSwag()
 	loadMiddle()
 	loadRouter()
 	loadFinish()
@@ -128,6 +132,20 @@ func loadLang() {
 	if method.IsValid() {
 		method.Call(nil)
 	}
+}
+
+// 加载文档
+func loadSwag() {
+
+	// 文档页配置
+	docs.SwaggerInfo.Title = boot.Cfg.Swag.Title
+	docs.SwaggerInfo.Description = boot.Cfg.Swag.Title
+	docs.SwaggerInfo.Version = boot.Cfg.Swag.Version
+	docs.SwaggerInfo.Host = "http://" + boot.Cfg.App.Host + ":" + boot.Cfg.App.Port
+	docs.SwaggerInfo.BasePath = boot.Cfg.Swag.BasePath
+
+	// 文档地址 /swagger/index.html
+	boot.Ege.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
 
 // 加载中间件

@@ -1,0 +1,19 @@
+info:
+  contact: {}
+paths:
+  /api/index:
+    get:
+      consumes:
+      - application/json
+      description: 这是index接口的简介
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: 这是index接口
+      tags:
+      - 接口示例
+swagger: "2.0"

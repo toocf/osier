@@ -11,7 +11,7 @@ type Controller struct {
 	boot.Ctr
 }
 
-// 例子
+// 通用
 func (that *Controller) Index(c *gin.Context) {
 
 	that.Suc(c, "你好，Osier框架！", "data")

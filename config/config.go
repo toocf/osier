@@ -5,4 +5,5 @@ type Config struct {
 	Log      Log      `mapstructure:"log"`
 	Database Database `mapstructure:"database"`
 	Redis    Redis    `mapstructure:"redis"`
+	Swag     Swag     `mapstructure:"swag"`
 }

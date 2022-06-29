@@ -2,18 +2,18 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"osier/app/controller"
+	"osier/app/controller/admin"
 )
 
 func (Router) Admin(r *gin.Engine) {
 
 	// 后台管理端接口
-	admin := r.Group("/admin")
+	base := r.Group("/admin")
 	{
 		// 实例化
-		clr := new(controller.Controller)
+		ctr := new(admin.Home)
 
 		// 示例
-		admin.GET("/", clr.Index)
+		base.GET("/", ctr.Index)
 	}
 }
