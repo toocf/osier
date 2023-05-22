@@ -5,12 +5,12 @@ import (
 	"osier/app/controller"
 )
 
-type Home struct {
+type Index struct {
 	controller.Controller
 }
 
 // 重写继承的Index
-func (that *Home) Index(c *gin.Context) {
+func (that *Index) Index(c *gin.Context) {
 
 	that.Suc(c, "Osier Admin Index!!!", "[2226788556]")
 }

@@ -1,11 +1,12 @@
-package api
+package home
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"osier/app/controller"
 )
 
-type Example struct {
+type Index struct {
 	controller.Controller
 }
 
@@ -18,7 +19,9 @@ type Example struct {
 // @Produce json
 // @Success 200 {string} index
 // @Router /api/index [get]
-func (that *Example) Index(c *gin.Context) {
+func (that *Index) Index(c *gin.Context) {
 
-	that.Suc(c, "Osier API Index!!!", "[2226788556]")
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"title": "Main website",
+	})
 }

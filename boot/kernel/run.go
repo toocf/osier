@@ -16,7 +16,7 @@ import (
 	"osier/boot"
 	"osier/config"
 	"osier/docs"
-	"osier/router"
+	"osier/routes"
 	"reflect"
 )
 
@@ -90,6 +90,10 @@ func initGdb(c *config.Config) *gorm.DB {
 
 // 初始化缓存
 func initRds(c *config.Config) *redis.Client {
+
+	if !c.Redis.Enable {
+		return nil
+	}
 
 	rds := redis.NewClient(&redis.Options{
 		Addr:     c.Redis.Host + ":" + c.Redis.Port,
@@ -169,7 +173,7 @@ func loadMiddle() {
 // 加载路由
 func loadRouter() {
 
-	rt := reflect.ValueOf(router.Router{})
+	rt := reflect.ValueOf(routes.Route{})
 	for i := 0; i < rt.NumMethod(); i++ {
 		rt.Method(i).Call([]reflect.Value{reflect.ValueOf(boot.Ege)})
 	}
